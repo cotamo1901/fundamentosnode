@@ -15,16 +15,23 @@ function hablar(callbackHablar) {
     }, 1000)
 }
 
-function adios(nombre, otrocallback) {
-    setTimeout(function () {
-        console.log("Adios" + nombre)
-        otrocallback()
+function adios(nombre) {
+    return new Promise((resolve, reject) => {
 
-    }, 1000)
+        setTimeout(function () {
+            console.log("Adios" + nombre)
+            resolve()
+
+        }, 1000)
+    })
 }
 console.log("Iniciando el proceso")
-    
-hola("john").then((nombre) => {
-    console.log("Terminado el proceso")
 
-})
+hola("john").then((nombre => {
+    return adios(nombre)
+}))
+
+    .then((nombre) => {
+        console.log("Terminado el proceso")
+
+    })
