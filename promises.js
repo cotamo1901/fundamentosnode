@@ -27,10 +27,9 @@ function adios(nombre) {
 }
 console.log("Iniciando el proceso")
 
-hola("john").then((nombre => {
-    return adios(nombre)
-}))
-
+hola("john")
+    .then(hablar)
+    .then(adios)
     .then((nombre) => {
         console.log("Terminado el proceso")
 
