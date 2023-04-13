@@ -30,7 +30,7 @@ async function adios(nombre) {
 async function main() {
   let nombre = await hola("Alejandro");
   await hablar();
-  hablar(); // Para hacer que se ejecute en segundo plano no debe existi el await
+  await hablar(); // Para hacer que se ejecute en segundo plano no debe existi el await
   await hablar();
   await adios(nombre);
   console.log("Termina el proceso");
